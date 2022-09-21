@@ -1,0 +1,26 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+		
+<mapper namespace="cate">
+	<select id="getCateList"  resultType="com.beans.CateInfo"  parameterType="int" >
+		select * from cateInfo where parentId = #{parentId}
+	</select>
+	
+	<select id="getCateById"  resultType="com.beans.CateInfo"  parameterType="int" >
+		select * from cateInfo where id = #{id}
+	</select>
+	
+	<select id="getAllCate" resultType="com.beans.CateInfo">
+		select * from cateInfo
+	</select>
+	
+	<delete id="deleteCateById" parameterType="int">
+		delete from cateInfo where id =#{id}
+	</delete>
+	
+	<insert id="addCate"  parameterType="com.beans.CateInfo"  >
+		insert into cateInfo (cateName,des,parentId) values ( #{cateName},#{des},#{parentId})
+	</insert>
+</mapper>
+				
+				
